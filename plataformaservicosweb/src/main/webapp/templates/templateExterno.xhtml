@@ -5,9 +5,32 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"> 
 
-<h:head><title></title></h:head> 
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>
+		<ui:insert name="titulo">Plataforma Serviços Web</ui:insert>
+	</title>
+</h:head> 
 <h:body> 
-  	<ui:composition template="">
-	</ui:composition>
+	<div id="container">
+		<div id="cabecalho">
+				<ui:insert name="cabecalho">
+				<ui:include src="/publico/cabecalho.xhtml" />
+			</ui:insert>
+		</div>		
+		<div id="barra_menu">
+			<ui:insert name="barra_menu">
+				<ui:include src="/publico/menuCategoria.xhtml" />
+			</ui:insert>
+		</div>
+		<div id="principal">
+			<ui:insert name="principal" />
+		</div>
+		<div id="rodape">
+			<ui:insert name="rodape">
+				<ui:include src="/publico/rodape.xhtml" />
+			</ui:insert>
+		</div>
+	</div>	
 </h:body> 
 </html>

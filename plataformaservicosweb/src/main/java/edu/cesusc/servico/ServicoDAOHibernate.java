@@ -1,11 +1,8 @@
 package edu.cesusc.servico;
 
 import java.util.List;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
-
-
 
 public class ServicoDAOHibernate implements ServicoDAO {
 	private Session session;
@@ -13,10 +10,14 @@ public class ServicoDAOHibernate implements ServicoDAO {
 	public void setSession(Session session) {
 		this.session = session;
 	}
-	public void buscar(Servico servico){
-		this.session.e
+	
+	public void buscar(String nomeServico){
+		String hql = "select servico from Servico s where s.nome = :nomeServico";
+		Query consulta = this.session.createQuery(hql);
+		consulta.setString("nomeServico", nomeServico);
+		return;
 	}
-
+	
 	public void salvar(Servico servico) {
 		this.session.save(servico);
 	}
@@ -35,6 +36,24 @@ public class ServicoDAOHibernate implements ServicoDAO {
 
 	public List<Servico> listar() {
 		return this.session.createCriteria(Servico.class).list();
+	}
+
+	@Override
+	public void mostrar(Servico servico) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void inserir(Servico servico) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void alterar(Servico servico) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
