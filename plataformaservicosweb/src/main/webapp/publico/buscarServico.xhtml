@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:primefaces-pm="http://primefaces.org/mobile"> 
+
+<h:head><title></title></h:head> 
+<h:body> 
+	<h:form>
+  		<ui:composition template="/templates/templateExterno.xhtml">
+			<ui:define name="principal"> 
+				<h:panelGrid columns="2" cellpadding="10" style="text-align:center;">
+					<p:inputText  style="width:100px;border-width:thin;border-color:DarkGray;border-style:solid;height:30px;"></p:inputText>
+					<h:graphicImage library="imagens" name="lupa.png" width="20"></h:graphicImage>
+				</h:panelGrid>
+	</ui:define>
+	</ui:composition>
+	</h:form>
+</h:body> 
+</html>
