@@ -7,7 +7,7 @@ import edu.cesusc.seguranca.usuario.Usuario;
 
 	public interface ServicoDAO {
 		public void mostrar(Servico servico);
-		public void Buscar(Usuario usuario);
+		public void buscar(String nomeServico);
 		public void atualizar(Servico servico);
 		public void inserir(Servico servico);
 		public void alterar(Servico servico);;
