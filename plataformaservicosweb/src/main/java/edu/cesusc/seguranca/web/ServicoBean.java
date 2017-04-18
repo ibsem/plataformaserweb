@@ -59,6 +59,5 @@ public class ServicoBean {
 		this.destinoSalvar = destinoSalvar;
 	}
 
-	
 
 }
