@@ -7,10 +7,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
-import edu.cesusc.seguranca.usuario.Usuario;
-import edu.cesusc.seguranca.usuario.UsuarioRN;
 import edu.cesusc.servico.Servico;
 import edu.cesusc.servico.ServicoDAO;
+import edu.cesusc.servico.ServicoRN;
 
 @ManagedBean(name = "servicoBean")
 @RequestScoped
@@ -21,24 +20,14 @@ public class ServicoBean {
 	
 
 	public String salvar() {
-		FacesContext context = FacesContext.getCurrentInstance();
-
-		String senha = this.usuario.getSenha();
-		if (!senha.equals(this.confirmarSenha)) {
-			FacesMessage facesMessage = new FacesMessage("A senha não foi confirmada corretamente");
-			context.addMessage(null, facesMessage);
-			return null;
-		}
-
-		UsuarioRN usuarioRN = new UsuarioRN();
-		usuarioRN.salvar(this.usuario);
-
+		ServicoRN servicoRN = new ServicoRN();
+		servicoRN.salvar(this.servico);
 		return this.destinoSalvar;
 	}
 
 	public String excluir() {
-		Servico usuarioRN = new UsuarioRN();
-		usuarioRN.excluir(this.usuario);
+		ServicoRN servicoRN = new ServicoRN();
+		servicoRN.excluir(this.servico);
 		this.lista = null;
 		return null;
 	}
