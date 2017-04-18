@@ -1,9 +1,5 @@
 package edu.cesusc.seguranca.web;
 
-
-
-public class ServicoBean {
-	
-
+public class ContatoBean {
 
 }
