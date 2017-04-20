@@ -2,7 +2,7 @@ package edu.cesusc.servico;
 
 import java.util.List;
 
-import edu.cesusc.seguranca.usuario.Usuario;
+import edu.cesusc.servico.Servico;
 
 
 	public interface ServicoDAO {

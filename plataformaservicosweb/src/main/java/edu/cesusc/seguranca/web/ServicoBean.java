@@ -2,11 +2,8 @@ package edu.cesusc.seguranca.web;
 
 import java.util.List;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.FacesContext;
-
 import edu.cesusc.servico.Servico;
 import edu.cesusc.servico.ServicoDAO;
 import edu.cesusc.servico.ServicoRN;

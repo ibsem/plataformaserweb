@@ -4,7 +4,8 @@ import java.util.List;
 
 import org.hibernate.Session;
 
-import edu.cesusc.servico.Servico;
+import edu.cesusc.contato.Contato;
+
 
 
 public class ContatoDAOHibernate implements ContatoDAO {	
@@ -16,8 +17,8 @@ public class ContatoDAOHibernate implements ContatoDAO {
 	public void incluiContato (Contato contato) {
 		this.session.save(contato);
 	}
-	public void alterarContato(Servico servico) {
-		this.session.update(servico);
+	public void alterarContato(Contato contato) {
+		this.session.update(contato);
 	}
 	public void excluirContato(Contato contato){
 		this.session.delete(contato);
@@ -25,6 +26,9 @@ public class ContatoDAOHibernate implements ContatoDAO {
 		public List<Contato> listar() {
 			return this.session.createCriteria(Contato.class).list();
 	}
+		public Contato carregar(Integer id_contato) {
+			return (Contato) this.session.get(Contato.class, id_contato);
+		}
 		@Override
 		public void inclui(Contato contato) {
 			// TODO Auto-generated method stub
