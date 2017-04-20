@@ -1,8 +1,13 @@
 package edu.cesusc.servico;
 
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
+
+
+import edu.cesusc.servico.Servico;
 
 public class ServicoDAOHibernate implements ServicoDAO {
 	private Session session;
