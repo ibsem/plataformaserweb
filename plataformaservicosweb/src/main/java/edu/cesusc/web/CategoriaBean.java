@@ -1,4 +1,4 @@
-package edu.cesusc.seguranca.web;
+package edu.cesusc.web;
 
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -7,6 +7,7 @@ import javax.faces.bean.RequestScoped;
 
 import edu.cesusc.categoria.Categoria;
 import edu.cesusc.categoria.CategoriaDAO;
+import edu.cesusc.categoria.CategoriaRN;
 
 
 

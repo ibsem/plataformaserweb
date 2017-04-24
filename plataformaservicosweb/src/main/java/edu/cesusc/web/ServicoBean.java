@@ -1,8 +1,5 @@
-package edu.cesusc.seguranca.web;
+package edu.cesusc.web;
 
-<<<<<<< HEAD
-public class ServicoBean {
-=======
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -59,6 +56,5 @@ public class ServicoBean {
 		this.destinoSalvar = destinoSalvar;
 	}
 
->>>>>>> branch 'master' of https://github.com/ibsem/plataformaservicosweb.git
 
 }

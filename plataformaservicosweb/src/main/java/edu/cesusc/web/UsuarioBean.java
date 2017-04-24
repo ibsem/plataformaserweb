@@ -1,4 +1,4 @@
-package edu.cesusc.seguranca.web;
+package edu.cesusc.web;
 
 import javax.faces.bean.*;
 import edu.cesusc.seguranca.usuario.Usuario;

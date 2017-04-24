@@ -44,5 +44,15 @@ public class ContatoDAOHibernate implements ContatoDAO {
 			// TODO Auto-generated method stub
 			
 		}
+		@Override
+		public void salvar(Contato contato) {
+			// TODO Auto-generated method stub
+			
+		}
+		@Override
+		public void exibir(Contato contato) {
+			// TODO Auto-generated method stub
+			
+		}
 	
 }

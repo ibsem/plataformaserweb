@@ -1,4 +1,4 @@
-package edu.cesusc.seguranca.web;
+package edu.cesusc.web;
 
 
 import java.util.List;
@@ -8,11 +8,12 @@ import javax.faces.bean.RequestScoped;
 
 import edu.cesusc.contato.Contato;
 import edu.cesusc.contato.ContatoDAO;
+import edu.cesusc.contato.ContatoRN;
 
 
 
 
-@ManagedBean(name = "categoriaBean")
+@ManagedBean(name = "contatoBean")
 @RequestScoped
 public class ContatoBean {
 	private Contato contato = new Contato();
@@ -20,7 +21,7 @@ public class ContatoBean {
 	private String destinoSalvar;
 	
 
-	public Contato salvar() {
+	public String salvar() {
 		ContatoRN contatoRN = new ContatoRN();
 		contatoRN.salvar(this.contato);
 		return this.destinoSalvar;

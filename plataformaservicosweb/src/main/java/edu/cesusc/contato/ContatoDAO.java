@@ -11,6 +11,8 @@ public interface ContatoDAO  {
 	public void excluir(Contato contato);
 	public Contato carregar(Integer id_contato);
 	public List<Contato> listar();
+	public void salvar(Contato contato);
+	public void exibir(Contato contato);
 	
 	
 }

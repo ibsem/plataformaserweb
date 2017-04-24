@@ -9,12 +9,12 @@
 <h:body> 
  	<p:menubar>
  		<p:submenu label="Administrador">
-            <p:menuitem value="Cadastrar Serviço" url="#" />
-            <p:menuitem value="Cadastrar Usuário" url="#" />
+            <p:menuitem value="Serviço" actionListener="#{servicoBean.lista}" />
+            <p:menuitem value="Usuário" actionListener="#{usuarioBean.lista}" />
         </p:submenu>
         <p:submenu label="Usuário">
-            <p:menuitem value="Cadastrar Serviço" url="#" />
-            <p:menuitem value="Cadastrar Contato" url="#" />
+            <p:menuitem value="Serviço" actionListener="#{servicoBean.salvar()}" />
+            <p:menuitem value="Contato" actionListener="#{contatoBean.salvar()}" />
         </p:submenu>
  	</p:menubar>
 </h:body> 

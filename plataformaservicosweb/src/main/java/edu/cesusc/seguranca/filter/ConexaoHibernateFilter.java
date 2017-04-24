@@ -1,4 +1,4 @@
-package edu.cesusc.seguranca.web.filter;
+package edu.cesusc.seguranca.filter;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

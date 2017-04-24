@@ -1,9 +1,5 @@
 package edu.cesusc.servico;
 
-<<<<<<< HEAD
-public class Servico {
-
-=======
 import java.io.Serializable;
 import java.util.Date;
 
@@ -54,5 +50,4 @@ public class Servico implements Serializable{
 		this.data_avaliacao = data_avaliacao;
 	}
 	
->>>>>>> branch 'master' of https://github.com/ibsem/plataformaservicosweb.git
 }

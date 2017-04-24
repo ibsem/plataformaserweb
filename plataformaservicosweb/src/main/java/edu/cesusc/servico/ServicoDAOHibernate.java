@@ -1,10 +1,5 @@
 package edu.cesusc.servico;
 
-<<<<<<< HEAD
-public class ServicoDAOHibernate {
-
-}
-=======
 
 import java.util.List;
 
@@ -66,10 +61,6 @@ public class ServicoDAOHibernate implements ServicoDAO {
 		
 	}
 
-
 	
 }
 
-
-
->>>>>>> branch 'master' of https://github.com/ibsem/plataformaservicosweb.git

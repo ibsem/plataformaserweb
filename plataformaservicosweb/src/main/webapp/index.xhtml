@@ -8,9 +8,14 @@
 <h:body>
 	<h1>Plataforma Serviços Web</h1>
 	<h:form>
-		<h:commandLink action="#{usuarioBean.novo}">Novo usuário</h:commandLink>
-		<br/>
-		<h:outputLink value="/restrito/principal.jsf">Entrar</h:outputLink >
+  		<ui:composition template="/templates/templateExterno.xhtml">
+			<ui:define name="principal"> 
+				<h:commandLink action="#{usuarioBean.novo}">Novo usuário</h:commandLink>
+				<br/>
+				<h:outputLink value="/restrito/principal.jsf">Entrar</h:outputLink >
+			</ui:define>
+		</ui:composition>
 	</h:form>
+	
 </h:body>
 </html>
