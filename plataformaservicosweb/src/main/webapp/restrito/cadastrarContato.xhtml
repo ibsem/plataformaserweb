@@ -7,7 +7,40 @@
 
 <h:head><title></title></h:head> 
 <h:body> 
-  	<ui:composition template="">
-	</ui:composition>
+ <ui:composition template="/index.xhtml">
+    <ui:define name="menu">
+      <h:commandLink value="Inicio"  action="/index.xhtml"/>
+    </ui:define>
+    <ui:define name="conteudo">
+      <h1>Cadastro de Contato</h1>
+      <h:panelGrid id="dadosContato" columns="2">
+        <h:outputText id="nomeText" value="Nome:"/>
+        <h:inputText id="nome" label="Nome" value="#{contatoBean.contato.nome}" maxlength="200" size="100"/>
+        <h:outputText id="emailText" value="Email:"/>
+        <h:inputText id="email" label="Email" value="#{contatoBean.contato.email}" maxlength="50" size="50"/>
+        </h:panelGrid>
+      <br/>
+      <h:commandButton id="cadastar" value="Cadastrar" actionListener="#{ca.doCadastrarContato}" >
+        <f:ajax execute="@form" render="contato dadosContato" />
+      </h:commandButton>
+      <br/><br/>
+      <h:dataTable id="contato" value="#{contatoBean.destinoSalvar}" var="contato">
+        <h:column>
+          <f:facet name="header">
+            <h:outputText id="columnNome" value="Nome"/>
+          </f:facet>
+          <h:outputText id="nomeContato" value="#{contato.nome}"/>
+        </h:column>
+       
+        <h:column>
+          <f:facet name="header">
+            <h:outputText id="columnEmail" value="Email"/>
+          </f:facet>
+          <h:outputText id="emailContato" value="#{contato.email}"/>
+        </h:column>
+        </h:dataTable>
+    </ui:define>
+  </ui:composition>
+  	
 </h:body> 
 </html>
