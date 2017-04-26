@@ -8,51 +8,30 @@
 <h:head><title>
 </title>template</h:head> 
 <h:body> 
-  	<p:menubar>
-        <p:submenu label="Graduaçao">
-            <p:menuitem value="Direito" url="#" />
-            <p:menuitem value="Admistraçao" url="#"/>            
-            <p:menuitem value="Analise e desenvolvimento de sistemas" url="#" />
-            <p:menuitem value="design de interiores" url="#"/>
-            <p:menuitem value="producao-multimidia" url="#"/>
-            <p:menuitem value="marketing" url="#"/>
-            <p:menuitem value="gestao-da-tecnologia-da-informacao" url="#"/>
-            <p:menuitem value="psicologia" url="#"/>           
-        </p:submenu>
-    <p:submenu label="Servicos de conserto" >
-            <p:menuitem value="Conserto de tvs" url="#" />
-            <p:menuitem value="Conserto de geladeira" url="#" />
-            <p:menuitem value="Conserto de microodas" url="#" />
-            <p:menuitem value="Conserto de ar condicionado e ventilador" url="#" />
-            <p:menuitem value="Conserto de  " url="#" />  
-    </p:submenu>
+  	<h:form>
+        <p:panel id="toggleable" header="Toggleable" toggleable="true" closable="true" toggleSpeed="500" closeSpeed="500" widgetVar="panel" style="margin-bottom:20px">
  
-        <p:submenu label="Help" icon="ui-icon-help">
-            <p:menuitem value="Contents" url="#" />
-            <p:submenu label="Search" icon="ui-icon-search">
-                <p:submenu label="Text">
-                    <p:menuitem value="Workspace" url="#" />
-                </p:submenu>
-                <p:menuitem value="File" url="#" />
-            </p:submenu>
-        </p:submenu>
+        <p:ajax event="close" listener="#{panelView.onClose}" update="msgs" />
+        <p:ajax event="toggle" listener="#{panelView.onToggle}" update="msgs" />
  
-        <p:submenu label="Actions" icon="ui-icon-gear">
-            <p:submenu label="Ajax" icon="ui-icon-refresh">
-                <p:menuitem value="Save" actionListener="#{menuView.save}" icon="ui-icon-disk" update="messages"/>
-                <p:menuitem value="Update" actionListener="#{menuView.update}" icon="ui-icon-arrowrefresh-1-w" update="messages"/>
-            </p:submenu>
-            <p:submenu label="Non-Ajax" icon="ui-icon-newwin">
-                <p:menuitem value="Delete" actionListener="#{menuView.delete}" icon="ui-icon-close" update="messages" ajax="false"/>
-            </p:submenu>
-        </p:submenu>
- 
-        <p:menuitem value="Quit" url="http://www.primefaces.org" icon="ui-icon-close" />
+         <h:panelGrid columns="2" cellpadding="10">
+           <h:outputText value="Com conceito 5 no Enade, o Curso de Direito
+                 busca oferecer aos alunos e à comunidade um espaço 
+                 para discussão de temas relevantes" />
+        </h:panelGrid>
  
         <f:facet name="options">
-            <p:inputText style="margin-right:10px" placeholder="Search"/>
-            <p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />
+            <p:menu>
+                <p:submenu label="Settings">
+                    <p:menuitem value="Toggle" url="#" icon="ui-icon-newwin" onclick="PF('panel').toggle()" />
+                    <p:menuitem value="Remove" url="#" icon="ui-icon-close" onclick="PF('panel').close()" />
+                </p:submenu>
+            </p:menu>
         </f:facet>
-    </p:menubar>
+    </p:panel>
+          
+        
+ 
+       </h:form> 
 </h:body> 
 </html>
