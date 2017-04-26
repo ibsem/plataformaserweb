@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+<h:head>
+	<title>Principal</title>
+</h:head>
+<h:body>
+	  <ui:composition template="/templates/templateInterno.xhtml">
+		<ui:define name="principal"> 
+			Usuário logado #{request.remoteUser} 
+			<br/>
+		<h:form>
+			<h:panelGroup rendered="#{request.isUserInRole('ROLE_ADMINISTRADOR')}"> 
+				<h:commandLink action="/admin/principal" title="Administrativo">
+					<h:graphicImage library="imagens" name="administrativo16.png" />
+				</h:commandLink>
+			</h:panelGroup>
+
+			<a onclick="document.location='#{request.contextPath}/j_spring_security_logout'" title="Sair">
+				<h:graphicImage library="imagens" name="logout16.png" />
+			</a> 
+		</h:form>
+			
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

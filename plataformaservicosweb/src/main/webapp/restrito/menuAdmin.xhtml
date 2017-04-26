@@ -5,17 +5,24 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"> 
 
-<h:head><title></title></h:head> 
 <h:body> 
- 	<p:menubar>
+
+<h:form>
+	<h:panelGroup rendered="#{request.isUserInRole('ROLE_ADMINISTRADOR')}"> 
+ 	<p:menubar style="width:100%;">
  		<p:submenu label="Administrador">
-            <p:menuitem value="Serviço" actionListener="#{servicoBean.lista}" />
-            <p:menuitem value="Usuário" actionListener="#{usuarioBean.lista}" />
+ 			<p:menuitem value="Categorias" action="/admin/cadastrarCategoria" />
+            <p:menuitem value="Serviços" action="/restrito/cadastroServico" />
+            <p:menuitem value="Usuários" action="/admin/principal" />
         </p:submenu>
+ 
         <p:submenu label="Usuário">
             <p:menuitem value="Serviço" actionListener="#{servicoBean.salvar()}" />
             <p:menuitem value="Contato" actionListener="#{contatoBean.salvar()}" />
         </p:submenu>
+        <p:menuitem value="Sair" onclick="document.location='#{request.contextPath}/j_spring_security_logout'" />
  	</p:menubar>
+ 	</h:panelGroup>
+</h:form>
 </h:body> 
 </html>
