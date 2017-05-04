@@ -13,7 +13,10 @@
  		<p:submenu label="Administrador">
  			<p:menuitem value="Categorias" action="/admin/cadastrarCategoria" />
             <p:menuitem value="Serviços" action="/restrito/cadastroServico" />
-            <p:menuitem value="Usuários" action="/admin/principal" />
+            <p:submenu label="Usuários">
+            		<p:menuitem value="Inserir" action="#{usuarioBean.novo}" />
+            		<p:menuitem value="Alterar" action="/admin/principal" />
+            </p:submenu>
         </p:submenu>
  
         <p:submenu label="Usuário">
@@ -21,6 +24,9 @@
             <p:menuitem value="Contato" actionListener="#{contatoBean.salvar()}" />
         </p:submenu>
         <p:menuitem value="Sair" onclick="document.location='#{request.contextPath}/j_spring_security_logout'" />
+        <f:facet name="options">
+			<h:outputText>usuário logado</h:outputText>
+        </f:facet>
  	</p:menubar>
  	</h:panelGroup>
 </h:form>
