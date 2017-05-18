@@ -26,16 +26,13 @@
 					<td><input type='password' name='j_password'/></td></tr>
 				<tr><td align="right"><input type="checkbox" name="_spring_security_remember_me"/></td> 
 					<td>Logar automaticamente</td></tr>
-				<tr><td></td>
-					<td><input type="submit" value="Logar"/></td>
-				</tr>
 				<tr>
-					<td>
-						<h:form>
-							<h:commandLink action="#{usuarioBean.novo}">Novo usuário</h:commandLink>
-						</h:form>
-					</td>
+					<td colspan = "2" align="center">
+						<input type="submit" value="Entrar"/>
+						<p:button outcome="#{usuarioBean.novo()}" value="Cadastrar-se" />
+					</td>	
 				</tr>
+
 			</table>
 			<script>
 				document.getElementById("login").j_username.value = "#{SPRING_SECURITY_LAST_USERNAME}"; 
