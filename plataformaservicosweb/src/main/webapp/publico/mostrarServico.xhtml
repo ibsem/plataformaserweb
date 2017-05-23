@@ -7,19 +7,7 @@
 
 <h:head><title></title></h:head> 
 <h:body> 
-	<h:form>
-    <ui:composition template="/templates/templateExterno.xhtml">
-  		<ui:define name="principal"> 
-  			 <p:panelGrid>
-        				<h:outputText value="Nome do Serviço:" />
-    					<h:outputText value="#{servicoBean.servico.nome}" />
-     					<h:outputText value="Avaliação:" />
-    					<h:outputText value="#{servicoBean.servico.avaliacao}" />
-    					<h:outputText value="Data da avaliação:" />
-    					<h:outputText value="#{servicoBean.servico.data_avaliacao}" />
- 			</p:panelGrid>
-		</ui:define>
+  	<ui:composition template="">
 	</ui:composition>
-	</h:form>
 </h:body> 
 </html>
