@@ -9,29 +9,18 @@
 </title>template</h:head> 
 <h:body> 
   	<h:form>
-        <p:panel id="toggleable" header="Toggleable" toggleable="true" closable="true" toggleSpeed="500" closeSpeed="500" widgetVar="panel" style="margin-bottom:20px">
- 
-        <p:ajax event="close" listener="#{panelView.onClose}" update="msgs" />
-        <p:ajax event="toggle" listener="#{panelView.onToggle}" update="msgs" />
- 
-         <h:panelGrid columns="2" cellpadding="10">
-           <h:outputText value="Com conceito 5 no Enade, o Curso de Direito
-                 busca oferecer aos alunos e à comunidade um espaço 
-                 para discussão de temas relevantes" />
-        </h:panelGrid>
- 
-        <f:facet name="options">
-            <p:menu>
-                <p:submenu label="Settings">
-                    <p:menuitem value="Toggle" url="#" icon="ui-icon-newwin" onclick="PF('panel').toggle()" />
-                    <p:menuitem value="Remove" url="#" icon="ui-icon-close" onclick="PF('panel').close()" />
-                </p:submenu>
-            </p:menu>
-        </f:facet>
-    </p:panel>
-          
-        
- 
-       </h:form> 
+ <ui:composition template="/templates/templateExterno.xhtml">
+  		<ui:define name="principal"> 
+  			 <p:panelGrid>
+        				<h:outputText value="Nome do Categoria:" />
+    					<h:outputText value="#{categoriaBean.categoria.nome}" />
+     					<h:outputText value="Descrição:" />
+    					<h:outputText value="#{categoriaBean.categoria.descricao}" />
+    					<h:outputText value="Lista de Serviços:" />
+    					<h:outputText value="#{categoriaBean.categoria.servicos}" />
+ 			</p:panelGrid>
+		</ui:define>
+	</ui:composition>
+	</h:form>
 </h:body> 
 </html>

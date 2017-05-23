@@ -6,20 +6,21 @@
       xmlns:p="http://primefaces.org/ui"> 
 
 <h:head>
-<h:body> 
-  <p:panelGrid>
-     
-    <h:outputText value="Nome:" />
-    <h:outputText value="Carlos" />
- 
-    <h:outputText value="email:" />
-    <h:outputText value="carlosantoniodelfino@hotmail.com" />
-    
-    <h:outputText value="telefone:" />
-    <h:outputText value="9985-6622" />
-    
-  </p:panelGrid>
-
-</h:body> 
 </h:head>
+<h:body> 
+	<h:form>
+    <ui:composition template="/templates/templateExterno.xhtml">
+  		<ui:define name="principal"> 
+  			 <p:panelGrid>
+        				<h:outputText value="Nome:" />
+    					<h:outputText value="#{contatoBean.contato.nome}" />
+     					<h:outputText value="email:" />
+    					<h:outputText value="#{contatoBean.contato.email}" />
+    					<h:outputText value="Telefone:" />
+    					<h:outputText value="#{contatoBean.contato.telefone}" />
+ 			</p:panelGrid>
+		</ui:define>
+	</ui:composition>
+	</h:form>
+</h:body> 
 </html>
