@@ -3,18 +3,34 @@ package edu.cesusc.servico;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
+
+@Entity
+@Indexed
+@Table(name="servico", schema="pltservicoswebDB")
 public class Servico implements Serializable{
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(generator="increment")
+	@Column
 	private Integer id_servico;
+	@Column
 	private Integer id_usuario;
+	@Field
+	@Column
 	private String nome;
+	
 	@org.hibernate.annotations.NaturalId 
+	@Column
 	private Integer avaliacao;
+	@Column
 	private Date data_avaliacao;
 	
 	

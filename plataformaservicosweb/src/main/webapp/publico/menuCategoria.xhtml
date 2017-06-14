@@ -26,7 +26,7 @@
         <p:menuitem value="Login" url="/restrito/cadastros.jsf" />
  	 	<f:facet name="options">
             <p:inputText style="margin-right:10px" placeholder="Search"/>
-            <p:commandButton type="button" value="Buscar" icon="ui-icon-extlink" />
+            <p:commandButton type="button" value="#{servicoBean.buscarServico()}" icon="ui-icon-extlink" />
    		</f:facet>
  	</p:menubar>
  </h:form>

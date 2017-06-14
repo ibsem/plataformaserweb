@@ -16,6 +16,12 @@ public class ServicoBean {
 	private String destinoSalvar;
 	
 
+	public List<Servico> buscarServico(String parametros) {
+		ServicoRN servicoRN = new ServicoRN();
+		this.lista = servicoRN.buscarServico(parametros);
+		return this.lista;
+	}
+	
 	public String salvar() {
 		ServicoRN servicoRN = new ServicoRN();
 		servicoRN.salvar(this.servico);
