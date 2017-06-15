@@ -7,8 +7,33 @@
 
 <h:head><title></title></h:head> 
 <h:body> 
-  	<ui:composition template="  ">
+ 		<ui:composition template="/templates/templateInterno.xhtml">
+			<ui:define name="principal">
+    			<h:form id="edicao">
+			<!-- (1) -->
+			<h:messages />
+			<h:inputHidden value="#{contaBean.selecionada.conta}" />
+			<h:inputHidden value="#{contaBean.selecionada.favorita}" />
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Descrição: " for="descricao" />
+				<h:inputText id="descricao"
+					value="#{contaBean.selecionada.descricao}" required="true"
+					maxlength="45" />
 
+				<h:outputLabel value="Saldo Inicial: " for="saldoInicial" />
+				<h:inputText id="saldoInicial"
+					value="#{contaBean.selecionada.saldoInicial}" size="10">
+					<f:convertNumber minFractionDigits="2" />
+				</h:inputText>
+
+				<h:commandButton value="Salvar" action="#{servicoBean.salvar()}">
+					<f:ajax execute="@form" render=":edicao :listagem" />
+				</h:commandButton>
+			</h:panelGrid>
+		</h:form> 
+			
+			
+			</ui:define>
 	</ui:composition>
 </h:body> 
 </html>

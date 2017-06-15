@@ -3,64 +3,43 @@ package edu.cesusc.servico;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
-
+import edu.cesusc.seguranca.usuario.Usuario;
 import edu.cesusc.servico.Servico;
 
+
 public class ServicoDAOHibernate implements ServicoDAO {
-	private Session session;
+
+	private Session	session;
 
 	public void setSession(Session session) {
 		this.session = session;
 	}
-	
-	public void buscar(String nomeServico){
-		String hql = "select servico from Servico s where s.nome = :nomeServico";
-		Query consulta = this.session.createQuery(hql);
-		consulta.setString("nomeServico", nomeServico);
-		return;
-	}
-	
-	public void salvar(Servico servico) {
-		this.session.save(servico);
-	}
 
-	public void atualizar(Servico servico) {
-		this.session.update(servico);
-	}
-
+	@Override
 	public void excluir(Servico servico) {
 		this.session.delete(servico);
 	}
 
-	public Servico carregar(Integer id_servico) {
-		return (Servico) this.session.get(Servico.class, id_servico);
-	}
-
-	public List<Servico> listar() {
-		return this.session.createCriteria(Servico.class).list();
+	@Override
+	public void salvar(Servico servico) {
+		this.session.saveOrUpdate(servico);
 	}
 
 	@Override
-	public void mostrar(Servico servico) {
-		// TODO Auto-generated method stub
-		
+	public Servico carregar(Integer servico) {
+		return (Servico) this.session.get(Servico.class, servico);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public void inserir(Servico servico) {
-		// TODO Auto-generated method stub
-		
+	public List<Servico> listar(Usuario usuario) {
+		Criteria criteria = this.session.createCriteria(Servico.class);
+		return criteria.list();
 	}
-
-	@Override
-	public void alterar(Servico servico) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
 }
 

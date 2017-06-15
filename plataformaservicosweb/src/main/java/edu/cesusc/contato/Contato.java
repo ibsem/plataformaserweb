@@ -1,18 +1,36 @@
 package edu.cesusc.contato;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
+
+@Entity
+@Table(name="contato")
 public class Contato implements  Serializable {
+	private static final long serialVersionUID = 8787285092181384093L;
 	@Id
 	@GeneratedValue
+	@Column(name = "id_contato")
 	private Integer id_contato;
+	@Column(name = "nome")
 	private String nome;
+	@Column(name = "email")
 	private String email;
+	@Column(name = "telefone")
 	private String telefone;
-	@org.hibernate.annotations.NaturalId
+	
+	@ManyToMany
+	@JoinTable(name = "contatos_servico", joinColumns = { @JoinColumn( name = "id_contato",
+		referencedColumnName = "id_contato")}, inverseJoinColumns = { @JoinColumn(name="id_servico")})
+	
 	
 	
 	public Integer getId_contato() {

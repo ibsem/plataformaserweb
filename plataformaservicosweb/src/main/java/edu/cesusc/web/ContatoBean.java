@@ -9,7 +9,7 @@ import javax.faces.bean.RequestScoped;
 import edu.cesusc.contato.Contato;
 import edu.cesusc.contato.ContatoDAO;
 import edu.cesusc.contato.ContatoRN;
-
+import edu.cesusc.servico.Servico;
 
 
 
@@ -34,10 +34,10 @@ public class ContatoBean {
 	}
 
 
-	public List<Contato> getLista() {
+	public List<Contato> getLista(Servico servico) {
 		if (this.lista == null) {
 			ContatoDAO contato = (ContatoDAO) new Contato();
-			this.lista = contato.listar();
+			this.lista = contato.listar(servico);
 		}
 		return this.lista;
 	}
