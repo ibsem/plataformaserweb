@@ -1,14 +1,18 @@
 package edu.cesusc.categoria;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 public class Categoria {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(generator="increment")
+	@Column
 	private Integer id_categoria;
+	@Column
 	private String nome;
+	@Column
 	private String descricao;
 	@org.hibernate.annotations.NaturalId
 	

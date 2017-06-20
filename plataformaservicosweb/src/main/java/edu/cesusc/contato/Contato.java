@@ -1,5 +1,6 @@
 package edu.cesusc.contato;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
@@ -7,10 +8,14 @@ import java.io.Serializable;
 
 public class Contato implements  Serializable {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(generator="increment")
+	@Column
 	private Integer id_contato;
+	@Column
 	private String nome;
+	@Column
 	private String email;
+	@Column
 	private String telefone;
 	@org.hibernate.annotations.NaturalId
 	
