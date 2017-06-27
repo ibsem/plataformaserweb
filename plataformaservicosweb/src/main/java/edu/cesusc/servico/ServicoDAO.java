@@ -11,4 +11,5 @@ import edu.cesusc.servico.Servico;
 		public void excluir(Servico servico);
 		public Servico carregar(Integer servico);
 		public List<Servico> listar(Usuario usuario);
+		public void atualizar(Servico servico);
 }

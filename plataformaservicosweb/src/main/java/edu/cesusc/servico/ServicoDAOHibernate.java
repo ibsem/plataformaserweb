@@ -41,5 +41,11 @@ public class ServicoDAOHibernate implements ServicoDAO {
 		Criteria criteria = this.session.createCriteria(Servico.class);
 		return criteria.list();
 	}
+
+	@Override
+	public void atualizar(Servico servico) {
+		// TODO Auto-generated method stub
+		
+	}
 }
 
