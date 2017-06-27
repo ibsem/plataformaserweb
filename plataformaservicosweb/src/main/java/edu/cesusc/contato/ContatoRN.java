@@ -40,26 +40,22 @@ public class ContatoRN {
 		this.contatoDAO = DAOFactory.criarContatoDAO();
 	}
 
+	public List<Contato> listar(Servico servico) {
+		return this.contatoDAO.listar(servico);
+	}
+	
 	public Contato carregar(Integer codigo) {
 		return this.contatoDAO.carregar(codigo);
 	}
 
 	public void salvar(Contato contato) {
-		Integer codigo = contato.getId_contato();
-		if (codigo == null || codigo == 0) {
 			this.contatoDAO.salvar(contato);
-		} else {
-			this.contatoDAO.exibir(contato);
-		}
 	}
 
-	public void excluir(Contato servico) {
-		this.contatoDAO.excluir(servico);
+	public void excluir(Contato contato) {
+		this.contatoDAO.excluir(contato);
 	}
 
-	public List<Contato> listar() {
-		return this.contatoDAO.listar();
-	}
 	public List<Contato> buscarContato(String parametros) {
 		 Session session = openSession();
 		 FullTextSession FullTextSessionfullTextSession = Search.getFullTextSession(session);

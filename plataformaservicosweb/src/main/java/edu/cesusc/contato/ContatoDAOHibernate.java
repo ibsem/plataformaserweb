@@ -2,57 +2,32 @@ package edu.cesusc.contato;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 import edu.cesusc.contato.Contato;
+import edu.cesusc.servico.Servico;
 
 
 
 public class ContatoDAOHibernate implements ContatoDAO {	
 	private Session session;
-
 	public void setSession(Session session) {
 		this.session = session;
 	}
-	public void incluiContato (Contato contato) {
-		this.session.save(contato);
+	public void salvar(Contato contato) {
+		this.session.saveOrUpdate(contato);
 	}
-	public void alterarContato(Contato contato) {
-		this.session.update(contato);
-	}
-	public void excluirContato(Contato contato){
+	public void excluir(Contato contato){
 		this.session.delete(contato);
 	}
-		public List<Contato> listar() {
-			return this.session.createCriteria(Contato.class).list();
-	}
-		public Contato carregar(Integer id_contato) {
+	public Contato carregar(Integer id_contato) {
 			return (Contato) this.session.get(Contato.class, id_contato);
 		}
-		@Override
-		public void inclui(Contato contato) {
-			// TODO Auto-generated method stub
-			
-		}
-		@Override
-		public void alterar(Contato contato) {
-			// TODO Auto-generated method stub
-			
-		}
-		@Override
-		public void excluir(Contato contato) {
-			// TODO Auto-generated method stub
-			
-		}
-		@Override
-		public void salvar(Contato contato) {
-			// TODO Auto-generated method stub
-			
-		}
-		@Override
-		public void exibir(Contato contato) {
-			// TODO Auto-generated method stub
-			
-		}
-	
+	public List<Contato> listar(Servico servico) {
+		Criteria criteria = this.session.createCriteria(Contato.class);
+		criteria.add(Restrictions.eq("servico", servico));
+		return criteria.list();
+}
 }

@@ -1,20 +1,31 @@
 package edu.cesusc.categoria;
 
-import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
-public class Categoria {
-	
+
+@Entity
+@Table(name="categoria")
+public class Categoria implements Serializable{
+	private static final long serialVersionUID = 8450056169116620498L;
 	@Id
-	@GeneratedValue(generator="increment")
-	@Column
+	@GeneratedValue
+	@Column(name = "id_categoria")
 	private Integer id_categoria;
-	@Column
+	@Column(name ="nome", updatable = false)
 	private String nome;
-	@Column
+	@Column(name ="descricao", updatable = false)
+
 	private String descricao;
-	@org.hibernate.annotations.NaturalId
+	
+	@ManyToMany
+	@JoinTable(name = "categorias_servico", joinColumns = { @JoinColumn( name = "id_categoria",
+		referencedColumnName = "id_categoria")}, inverseJoinColumns = { @JoinColumn(name="id_servico")})
+	
 	
 	public Integer getId_categoria() {
 		return id_categoria;

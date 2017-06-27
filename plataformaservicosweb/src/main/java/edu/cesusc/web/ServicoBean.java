@@ -7,6 +7,7 @@ import javax.faces.bean.RequestScoped;
 import edu.cesusc.servico.Servico;
 import edu.cesusc.servico.ServicoDAO;
 import edu.cesusc.servico.ServicoRN;
+import edu.cesusc.web.util.ContextoUtil;
 
 @ManagedBean(name = "servicoBean")
 @RequestScoped
@@ -15,6 +16,7 @@ public class ServicoBean {
 	private List<Servico> lista;
 	private String destinoSalvar;
 	
+
 
 	public List<Servico> buscarServico(String parametros) {
 		ServicoRN servicoRN = new ServicoRN();
@@ -35,11 +37,13 @@ public class ServicoBean {
 		return null;
 	}
 
-
-	public List<Servico> getLista() {
+	
+	public List<Servico> getLista() { 
 		if (this.lista == null) {
-			ServicoDAO servico = (ServicoDAO) new Servico();
-			this.lista = servico.listar();
+			ContextoBean contextoBean = ContextoUtil.getContextoBean();
+
+			ServicoRN servicoRN = new ServicoRN();
+			this.lista = servicoRN.listar(contextoBean.getUsuarioLogado());
 		}
 		return this.lista;
 	}
