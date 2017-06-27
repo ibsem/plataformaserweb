@@ -17,6 +17,12 @@ public class ServicoBean {
 	private String destinoSalvar;
 	
 
+
+	public List<Servico> buscarServico(String parametros) {
+		ServicoRN servicoRN = new ServicoRN();
+		this.lista = servicoRN.buscarServico(parametros);
+		return this.lista;
+	}
 	
 	public String salvar() {
 		ServicoRN servicoRN = new ServicoRN();
@@ -31,11 +37,6 @@ public class ServicoBean {
 		return null;
 	}
 
-	public List<Servico> buscarServico(String parametros) { 
-			ServicoRN servicoRN = new ServicoRN();
-			this.lista = servicoRN.buscarServico(parametros);
-			return this.lista;
-	}
 	
 	public List<Servico> getLista() { 
 		if (this.lista == null) {

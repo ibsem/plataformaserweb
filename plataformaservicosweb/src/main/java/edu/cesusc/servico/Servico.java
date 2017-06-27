@@ -7,18 +7,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
-import edu.cesusc.seguranca.usuario.Usuario;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
 
 @Entity
-@Table(name = "servico")
+@Indexed
+@Table(name="servico", schema="pltservicoswebDB")
+
 public class Servico implements Serializable{
 	private static final long serialVersionUID = -2551563805909304215L;
 	
@@ -37,6 +34,7 @@ public class Servico implements Serializable{
 	@Column(name = "avaliacao")
 	private Integer avaliacao;
 	@Column(name = "data_avaliacao")
+
 	private Date data_avaliacao;
 	
 		

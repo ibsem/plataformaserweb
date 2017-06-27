@@ -3,6 +3,7 @@ package edu.cesusc.servico;
 import java.util.List;
 
 import edu.cesusc.seguranca.usuario.Usuario;
+
 import edu.cesusc.seguranca.util.DAOFactory;
 import org.hibernate.Session;
 import org.hibernate.search.FullTextSession;
@@ -78,5 +79,23 @@ public class ServicoRN {
 	public List<Servico> listar(Usuario usuario) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public List<Servico> buscarServico(String parametros) {
+		 Session session = openSession();
+		 FullTextSession FullTextSessionfullTextSession = Search.getFullTextSession(session);
+		 SharedSessionContract fullTextSession = null;
+		 fullTextSession.beginTransaction();
+		  String parametroPesquisa = parametros ;
+		  QueryBuilder queryBuilder = ((FullTextSession) fullTextSession).getSearchFactory()
+		     .buildQueryBuilder().forEntity(Servico.class).get();
+		   
+		  org.apache.lucene.search.Query luceneQuery = 
+		   queryBuilder.keyword().onFields("nome").matching
+		    (parametroPesquisa).createQuery();
+		  org.hibernate.Query hibernateQuery =
+				  ((FullTextSession) fullTextSession).createFullTextQuery(luceneQuery, Servico.class);
+				  List<Servico> resultado = hibernateQuery.list();
+		return resultado;
 	}
 }

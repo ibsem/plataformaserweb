@@ -1,9 +1,5 @@
 package edu.cesusc.categoria;
 
-import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -23,6 +19,7 @@ public class Categoria implements Serializable{
 	@Column(name ="nome", updatable = false)
 	private String nome;
 	@Column(name ="descricao", updatable = false)
+
 	private String descricao;
 	
 	@ManyToMany
