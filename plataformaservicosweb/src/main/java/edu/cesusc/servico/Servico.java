@@ -34,8 +34,11 @@ public class Servico implements Serializable{
 		
 	@Column(name = "nome")
 	private String nome;
+	@Column(name = "palavraschave")
+	private String palavraschave;
 	@Column(name = "avaliacao")
 	private Integer avaliacao;
+	
 	@Column(name = "data_avaliacao")
 	private Date data_avaliacao;
 	
@@ -53,6 +56,13 @@ public class Servico implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	public String getPalavraschave() {
+		return palavraschave;
+	}
+	public void setPalavraschave(String palavraschave) {
+		this.palavraschave = palavraschave;
+	}
+	
 	public Integer getAvaliacao() {
 		return avaliacao;
 	}
